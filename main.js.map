@@ -1,0 +1,1 @@
+{"version":3,"file":"main.js","mappings":"mBAEAA,QAAQC,IAAI,M","sources":["webpack://gem-puzzle/./src/pages/index.js"],"sourcesContent":["import './index.css';\r\n\r\nconsole.log('run');\r\n"],"names":["console","log"],"sourceRoot":""}
