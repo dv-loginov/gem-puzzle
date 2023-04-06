@@ -1,0 +1,20 @@
+
+input[type="checkbox"] + .setting__mute {
+  background-color: black;
+  display: inline-block;
+  width: 24px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+input[type="checkbox"]:disabled + .setting__mute {
+  background-color: aqua;
+} /* выключенный */
+
+input[type="checkbox"]:checked + .setting__mute {
+  background-color: blue;
+} /* выбранный */
+
+input[type="checkbox"]:focus + .setting__mute {
+  border: 1px solid red;
+} /* в фокусе */

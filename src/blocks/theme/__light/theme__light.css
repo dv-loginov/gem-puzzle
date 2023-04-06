@@ -1,0 +1,7 @@
+.theme__light {
+  /*background-color: rgba(216, 192, 103, 1);;*/
+  --bg-color: #fff;
+  --border: #000;
+  --text-color: #000;
+  --bg-button: #fff;
+}

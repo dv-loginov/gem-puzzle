@@ -1,0 +1,23 @@
+input[type="checkbox"] + .setting__theme {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+input[type="checkbox"]:disabled + .setting__theme {
+  background-color: aqua;
+} /* выключенный */
+
+input[type="checkbox"]:checked + .setting__theme {
+  background-color: black;
+  color: white;
+} /* выбранный */
+
+input[type="checkbox"]:focus + .setting__theme {
+  border: 1px solid red;
+} /* в фокусе */
+

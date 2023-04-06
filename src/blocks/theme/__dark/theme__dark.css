@@ -1,0 +1,7 @@
+.theme__dark {
+  /*background-color: rgba( 74, 103, 142, 1);*/
+  --bg-color: #000;
+  --border: #fff;
+  --text-color: #fff;
+  --bg-button: #000;
+}

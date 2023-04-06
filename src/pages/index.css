@@ -1,0 +1,263 @@
+/*@import url(../vendor/normalize.css);*/
+@import '../vendor/normalize.css';
+@import '../blocks/const/const.css';
+
+@import '../blocks/page/page.css';
+
+@import '../blocks/theme/__light/theme__light.css';
+@import '../blocks/theme/__dark/theme__dark.css';
+
+@import '../blocks/puzzle/puzzle.css';
+@import '../blocks/header/header.css';
+
+@import '../blocks/controls/controls.css';
+@import '../blocks/controls/_button/controls_button.css';
+
+@import '../blocks/counters/counters.css';
+@import '../blocks/counter/counter.css';
+@import '../blocks/counter/_header/counter_header.css';
+@import '../blocks/counter/_value/counter_value.css';
+
+@import '../blocks/settings/settings.css';
+@import '../blocks/setting/setting.css';
+@import '../blocks/setting/__invisible/setting__invisible.css';
+@import '../blocks/setting/__mute/setting__mute.css';
+@import '../blocks/setting/__language/setting__language.css';
+@import '../blocks/setting/__theme/setting__theme.css';
+@import '../blocks/setting/__size/setting__size.css';
+
+@import '../blocks/board/board.css';
+@import '../blocks/row/row.css';
+@import '../blocks/cell/cell.css';
+@import '../blocks/cell/_zero/cell_zero.css';
+
+/*$color-primary-0: rgba( 74, 103, 142, 1);	!* Основной Цвет *!*/
+/*$color-primary-1: rgba( 68,  84, 107, 1);*/
+/*$color-primary-2: rgba( 24,  53,  92, 1);*/
+/*$color-primary-3: rgba(127, 157, 199, 1);*/
+/*$color-primary-4: rgba(146, 168, 199, 1);*/
+
+/*$color-secondary-a-0: rgba(216, 192, 103, 1);	!* Вторичный Цвет A *!*/
+/*$color-secondary-a-1: rgba(162, 149,  98, 1);*/
+/*$color-secondary-a-2: rgba(140, 118,  33, 1);*/
+/*$color-secondary-a-3: rgba(235, 216, 143, 1);*/
+/*$color-secondary-a-4: rgba(235, 221, 168, 1);*/
+
+/*$color-secondary-b-0: rgba(216, 146, 103, 1);	!* Вторичный Цвет B *!*/
+/*$color-secondary-b-1: rgba(162, 123,  98, 1);*/
+/*$color-secondary-b-2: rgba(140,  74,  33, 1);*/
+/*$color-secondary-b-3: rgba(235, 178, 143, 1);*/
+/*$color-secondary-b-4: rgba(235, 194, 168, 1);*/
+/*!*@import "./components/button";*!*/
+/*!*@import "./components/moves";*!*/
+/*@import "./components/label-text";*/
+/*@import "./components/row";*/
+/*@import "./components/cel";*/
+/*@import "./components/button-size";*/
+/*@import "./components/time";*/
+
+
+/*.puzzle {*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  min-width: 320px;*/
+/*  max-width: 800px;*/
+/*  padding: .3em;*/
+/*  border: 2px solid black;*/
+/*  border-radius: .5em;*/
+/*  width: 100%;*/
+/*  background-color: dimgrey;*/
+
+/*&__nav {*/
+/*   display: flex;*/
+/*   align-self: center;*/
+/*   padding: .1em;*/
+/* }*/
+
+/*&__stat {*/
+/*   display: flex;*/
+/*   padding: 1em;*/
+/*   width: 100%;*/
+/*   justify-content: center;*/
+/* }*/
+
+/*&__board {*/
+/*   display: flex;*/
+/*   flex-direction: column;*/
+/*   justify-content: center;*/
+/*   align-items: center;*/
+/*   flex-wrap: wrap;*/
+/* }*/
+
+/*&__info {*/
+/*   padding: 1em;*/
+/*   display: flex;*/
+/*   justify-content: center;*/
+/*   align-items: center;*/
+/*   width: 100%;*/
+/* }*/
+
+/*&__setting {*/
+/*   padding: .1em;*/
+/*   display: flex;*/
+/*   width: 100%;*/
+/*   justify-content: center;*/
+/*   align-items: center;*/
+/* }*/
+/*}*/
+
+
+
+/*@import url(../blocks/page/page.css);*/
+/*@import url(../blocks/header/header.css);*/
+/*@import url(../blocks/logo/logo.css);*/
+
+/*@import url(../blocks/profile/profile.css);*/
+/*@import url(../blocks/profile/__avatar/profile__avatar.css);*/
+/*@import url(../blocks/profile/__info/profile__info.css);*/
+/*@import url(../blocks/profile/__row/profile__row.css);*/
+
+/*@import url(../blocks/profile/__title/profile__title.css);*/
+/*@import url(../blocks/profile/__subtitle/profile__subtitle.css);*/
+/*@import url(../blocks/profile/__edit-btn/profile__edit-btn.css);*/
+
+/*@import url(../blocks/add-btn/add-btn.css);*/
+
+/*@import url(../blocks/elements/elements.css);*/
+
+/*@import url(../blocks/element/element.css);*/
+/*@import url(../blocks/element/__img/element__img.css);*/
+/*@import url(../blocks/element/__row/element__row.css);*/
+/*@import url(../blocks/element/__name/element__name.css);*/
+/*@import url(../blocks/element/__btn-trash/element__btn-trash.css);*/
+/*@import url(../blocks/element/__btn-like/element__btn-like.css);*/
+/*@import url(../blocks/element/__btn-like/_active/element__btn-like_active.css);*/
+
+/*@import url(../blocks/popup/popup.css);*/
+/*@import url(../blocks/popup/_opened/popup_opened.css);*/
+/*@import url(../blocks/popup/__container/popup__container.css);*/
+/*@import url(../blocks/popup/__container-img/popup__container-img.css);*/
+/*@import url(../blocks/popup/__caption/popup__caption.css);*/
+/*@import url(../blocks/popup/__img/popup__img.css);*/
+/*@import url(../blocks/popup/__title/popup__title.css);*/
+/*@import url(../blocks/popup/__close/popup__close.css);*/
+
+/*@import url(../blocks/form/form.css);*/
+/*@import url(../blocks/form/__input/form__input.css);*/
+/*@import url(../blocks/form/__input/_type/form__input_type_error.css);*/
+/*@import url(../blocks/form/__btn/form__btn.css);*/
+/*@import url(../blocks/form/__btn/_inactive/form__btn_inactive.css);*/
+/*@import url(../blocks/form/__input-error/form__input-error.css);*/
+/*@import url(../blocks/form/__input-error/_active/form__input-error_active.css);*/
+
+/*@import url(../blocks/footer/footer.css);*/
+/*@import url(../blocks/footer/__copyright/footer__copyright.css);*/
+
+/*@import url(../vendor/fonts/fonts.css);*/
+
+/*.cel {*/
+/*  width: 94px;*/
+/*  height: 94px;*/
+/*  border: 1px solid royalblue;*/
+/*  border-radius: 5px;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  justify-content: center;*/
+/*  background-color: cadetblue;*/
+/*  cursor: pointer;*/
+/*  margin: 2px;*/
+/*  transition: all .1s;*/
+
+/*&_empty {*/
+/*   pointer-events: none;*/
+/*   opacity: 0;*/
+/*   cursor: default;*/
+/*   transition: all .1s;*/
+/* }*/
+
+/*@media (max-width: 804px) {*/
+/*  width: 11.5vw;*/
+/*  height: 11.5vw;*/
+/*}*/
+
+/*@media (max-width: 580px) {*/
+/*  width: 11vw;*/
+/*  height: 11vw;*/
+/*}*/
+
+/*@media (max-width: 395px) {*/
+/*  width: 10vw;*/
+/*  height: 10vw;*/
+/*}*/
+/*}*/
+
+/*.button{*/
+/*  transition: all .5s;*/
+/*  text-align: center;*/
+/*  padding: .2em .5em;*/
+/*  border: 1px solid rosybrown;*/
+/*  margin: .5em;*/
+/*  border-radius: 5px;*/
+/*  cursor: pointer;*/
+/*  background-color: brown;*/
+/*&:hover{*/
+/*   transition: all .5s;*/
+/*   background-color: royalblue;*/
+/* }*/
+/*}*/
+
+/*.button-size {*/
+/*  transition: all .5s;*/
+/*  cursor: pointer;*/
+/*  padding: .1em;*/
+/*  margin: .1em;*/
+
+/*&_selected {*/
+/*   cursor: default;*/
+/* }*/
+
+/*&:not(&_selected):hover {*/
+/*   color: aquamarine;*/
+/*   transition: all .5s;*/
+/* }*/
+/*}*/
+
+
+/*.moves {*/
+/*  display: flex;*/
+/*  padding: .1em;*/
+/*  align-self: flex-end;*/
+/*&__label {*/
+/*   max-width: 4em;*/
+/*   flex: 1;*/
+/*   padding: .1em;*/
+/* }*/
+/*&__counter {*/
+/*   flex: 2;*/
+/*   padding: .1em;*/
+/* }*/
+/*}*/
+
+/*.time {*/
+/*  display: flex;*/
+/*  padding: .1em;*/
+/*&__label {*/
+/*   max-width: 2.6em;*/
+/*   flex: 1;*/
+/*   padding: .1em;*/
+/* }*/
+/*&__counter {*/
+/*   flex: 2;*/
+/*   padding: .1em;*/
+/* }*/
+/*}*/
+
+
+/*.label-text {*/
+/*  font-size: .9em;*/
+/*  padding: .5em;*/
+/*}*/
+
+/*.row{*/
+/*  display: flex;*/
+/*}*/

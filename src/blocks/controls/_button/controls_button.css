@@ -1,0 +1,12 @@
+.controls_button {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--bg-button);
+  border-radius: 50%;
+}

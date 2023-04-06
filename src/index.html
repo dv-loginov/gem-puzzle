@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+  <title>Puzzle</title>
+</head>
+<body class="page theme__light">
+<div class="puzzle">
+  <div class="header">
+    <h1 class="logo">GemPazzle</h1>
+    <div class="controls">
+      <button class="controls_button">
+        <span class="material-symbols-outlined">play_circle</span>
+      </button>
+      <button class="controls_button">
+        <span class="material-symbols-outlined">replay</span>
+      </button>
+      <button class="controls_button">
+        <span class="material-symbols-outlined">pause_circle</span>
+      </button>
+    </div>
+    <div class="counters">
+      <div class="counter counter__move">
+        <h3 class="counter_header">Moves</h3>
+        <div class="counter_value">00</div>
+      </div>
+      <div class="counter counter__time">
+        <h3 class="counter_header">Time</h3>
+        <div class="counter_value">00:00</div>
+      </div>
+    </div>
+  </div>
+  <div class="settings">
+    <label class="setting">
+      <input type="checkbox" class="setting__invisible"/>
+      <span class="setting__mute"></span>
+    </label>
+    <label class="setting">
+      <input type="checkbox" class="setting__invisible"/>
+      <span class="setting__language"></span>
+    </label>
+    <label class="setting">
+      <input type="checkbox" class="setting__invisible"/>
+      <span class="material-symbols-outlined setting__theme">dark_mode</span>
+<!--      <span class="setting__theme"></span>-->
+    </label>
+    <label class="setting">
+      <select class="setting__size">
+        <option value="3">3*3</option>
+        <option value="4" selected>4*4</option>
+        <option value="5">5*5</option>
+      </select>
+    </label>
+  </div>
+  <div class="board">
+    <div class="row">
+      <div class="cell cell_zero">0</div>
+      <div class="cell">1</div>
+      <div class="cell">2</div>
+      <div class="cell">3</div>
+    </div>
+    <div class="row">
+      <div class="cell">4</div>
+      <div class="cell">5</div>
+      <div class="cell">6</div>
+      <div class="cell">7</div>
+    </div>
+    <div class="row">
+      <div class="cell">8</div>
+      <div class="cell">9</div>
+      <div class="cell">10</div>
+      <div class="cell">11</div>
+    </div>
+    <div class="row">
+      <div class="cell">12</div>
+      <div class="cell">13</div>
+      <div class="cell">14</div>
+      <div class="cell">15</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

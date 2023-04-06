@@ -1,0 +1,9 @@
+.counter {
+  border: solid 1px var(--border);
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}

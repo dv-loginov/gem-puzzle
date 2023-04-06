@@ -1,0 +1,9 @@
+.puzzle {
+  max-width: 768px;
+  min-width: 320px;
+  border: 1px solid var(--border);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
