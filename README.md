@@ -8,4 +8,4 @@
 
 **Deploy**
 
-* [Mesto]https://dv-loginov.github.io/mesto/
+* [gem-puzzle]https://dv-loginov.github.io/gem-puzzle/
