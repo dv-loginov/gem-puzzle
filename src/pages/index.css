@@ -33,6 +33,8 @@
 @import '../blocks/cell/cell.css';
 @import '../blocks/cell/_zero/cell_zero.css';
 
+@import '../blocks/chip/chip.css';
+
 /*$color-primary-0: rgba( 74, 103, 142, 1);	!* Основной Цвет *!*/
 /*$color-primary-1: rgba( 68,  84, 107, 1);*/
 /*$color-primary-2: rgba( 24,  53,  92, 1);*/

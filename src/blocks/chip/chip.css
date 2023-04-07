@@ -1,3 +1,10 @@
 .chip {
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--border);
+  box-sizing: border-box;
 }

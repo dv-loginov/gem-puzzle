@@ -1,13 +1,18 @@
 import './index.css';
-import { check } from '../components/consts/consts.js';
+import { button, check } from '../components/consts/consts.js';
 import { changeClass, icoChange, onListener } from '../components/utils/utils';
 
 const body = document.querySelector('body');
 
-const {themeCheck, muteCheck} = check;
+const { themeCheck, muteCheck } = check;
+const { playNode: play, replay,pause } = button;
 
 onListener(themeCheck.nodeCheck, 'change', handleChangeTheme);
 onListener(muteCheck.nodeCheck, 'change', handleChangeMute);
+
+onListener(button.playNode, 'click', handleBtnPlay);
+onListener(button.replayNode, 'click', handleBtnReplay);
+onListener(button.pauseNode, 'click', handleBtnPause);
 
 function handleChangeMute(instance) {
   instance.checked
@@ -24,3 +29,17 @@ function handleChangeTheme(instance) {
     changeClass(body, 'theme__light', 'theme__dark');
   }
 }
+
+function handleBtnPlay(){
+  console.log('handleBtnPlay');
+
+}
+
+function handleBtnReplay(){
+  console.log('handleBtnReplay');
+}
+
+function handleBtnPause(){
+  console.log('handleBtnPause');
+}
+
