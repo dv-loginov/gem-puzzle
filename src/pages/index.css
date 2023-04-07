@@ -7,11 +7,13 @@
 @import '../blocks/theme/__light/theme__light.css';
 @import '../blocks/theme/__dark/theme__dark.css';
 
+@import '../blocks/logo/logo.css';
+
 @import '../blocks/puzzle/puzzle.css';
 @import '../blocks/header/header.css';
 
 @import '../blocks/controls/controls.css';
-@import '../blocks/controls/_button/controls_button.css';
+@import '../blocks/button/button.css';
 
 @import '../blocks/counters/counters.css';
 @import '../blocks/counter/counter.css';

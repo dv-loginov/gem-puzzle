@@ -1,4 +1,4 @@
-.controls_button {
+.button {
   width: 34px;
   height: 34px;
   padding: 0;
@@ -8,5 +8,6 @@
   align-items: center;
   cursor: pointer;
   background-color: var(--bg-button);
+  color: var(--text-color);
   border-radius: 50%;
 }

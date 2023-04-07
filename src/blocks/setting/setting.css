@@ -1,4 +1,9 @@
 .setting {
-  height: 30px;
   cursor: pointer;
+  background-color: var(--bg-button);
+  color: var(--text-color);
+  user-select: none;
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
 }
