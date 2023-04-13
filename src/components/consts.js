@@ -25,8 +25,8 @@ export const board = ".board";
 
 export const cell = {
   template: '#cell-template',
-  row: ".row",
-  cell: ".cel",
+  rowClass: "row",
+  cell: ".cell",
   chip: '.chip',
-  zero: '.cell_zero',
+  zeroClass: 'cell_zero',
 };

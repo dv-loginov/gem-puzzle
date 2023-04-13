@@ -1,4 +1,4 @@
-import { cell } from './consts/consts';
+import { cell } from '../consts';
 
 export class Cell {
   static _template = document.querySelector(cell.template).content;
@@ -13,6 +13,7 @@ export class Cell {
     this._chip = this._element.querySelector(cell.chip);
     this._chip.textContent = this._num;
     this._setEventListeners();
+
     return this._element;
   }
 

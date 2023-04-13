@@ -1,8 +1,6 @@
 import './index.css';
-import { button, check, boardNode } from '../components/consts/consts';
+import { button, check, boardNode } from '../components/consts';
 import { changeClass, icoChange, onListener } from '../components/utils/utils';
-// import { Board } from '../components/Board';
-// import { Cell } from '../components/Cell';
 import { BoardController } from '../components/Board/BoardController';
 import { BoardModel } from '../components/Board/BoardModel';
 import { BoardView } from '../components/Board/BoardView';

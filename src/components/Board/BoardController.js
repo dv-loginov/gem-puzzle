@@ -1,6 +1,6 @@
-import { selectNode } from '../consts/consts';
-import { Cell } from '../Cell';
-import { generateNumberSet } from '../../utils/utils';
+import { selectNode } from '../consts';
+import { Cell } from '../Cell/Cell';
+import { generateNumberSet } from '../utils/utils';
 
 export class BoardController {
   constructor({model, view}) {
@@ -11,19 +11,14 @@ export class BoardController {
   }
 
   init() {
-    const initBoard = generateNumberSet(this._size);
-
     this._model = new this._modelClass(this._size);
 
-    this._view = new this._viewClass(
-      this._size,
-      {
+    this._view = new this._viewClass({
         instance: Cell,
         handle: this._handleClick
       });
 
-    this._view.generateView(this._model.generateBoard(initBoard));
-
+    this._view.createView(this._model.createBoard());
   }
 
   _handleClick() {

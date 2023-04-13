@@ -1,12 +1,12 @@
-import { generateNumberSet } from '../../utils/utils';
+import { generateNumberSet } from '../utils/utils';
 
 export class BoardModel {
   constructor(size) {
     this._size = size;
   }
 
-  generateBoard(board) {
-    const arrNumber = [...board];
+  createBoard() {
+    const arrNumber = [...generateNumberSet(this._size)];
     let counter = 0;
     this._board = Array(this._size);
     for (let i = 0; i < this._size; i++) {
@@ -15,7 +15,7 @@ export class BoardModel {
         this._board[i][j] = arrNumber[counter++];
       }
     }
-    console.log(this._board);
+
     return this._board;
   }
 
