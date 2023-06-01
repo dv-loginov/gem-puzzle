@@ -1,4 +1,4 @@
-import { generateNumberSet } from '../utils/utils';
+import { generateNumberSet } from '../../core/utils';
 
 export class BoardModel {
   constructor(size) {

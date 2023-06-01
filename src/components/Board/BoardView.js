@@ -1,4 +1,4 @@
-import { board, cell } from '../consts';
+import { board, cell } from '../../core/constants';
 
 export class BoardView {
   constructor({instance, handle}) {
@@ -7,8 +7,7 @@ export class BoardView {
     this._root = document.querySelector(board);
   }
 
-  createView(board) {
-    this._size = board.length;
+  renderView(board) {
     const boardNodes = new DocumentFragment();
 
     for (let i = 0; i < board.length; i++) {
@@ -16,34 +15,30 @@ export class BoardView {
       row.classList.add(cell.rowClass);
 
       for (let j = 0; j < board.length; j++) {
-        const cell = new this._cellInstance(board[i][j], this._handleClick);
+        const cell = new this._cellInstance(board[i][j], {x: i, y: j})
+        if (board[i][j] === 0) this._zero = {x: i, y: j};
         row.append(cell.createCell());
       }
-
       boardNodes.append(row);
     }
 
     this._root.append(boardNodes);
-    this._fillBoard();
+    this._setEventListeners();
   }
 
-  _fillBoard() {
-    this._board = Array(this._size);
+  _setEventListeners() {
     const cells = this._root.querySelectorAll(cell.chip);
-    let counter = 0;
 
-    for (let i = 0; i < this._size; i++) {
-      this._board[i] = Array(this._size);
-
-      for (let j = 0; j < this._size; j++) {
-        this._board[i][j] = cells[counter++];
-        if (this._board[i][j].textContent === '0') {
-          this._zeroCell = this._board[i][j].closest('.cell');
-          this._board[i][j].remove();
-        }
-      }
-    }
-
-    console.log(this._zeroCell);
+    cells.forEach((node) => {
+      node.addEventListener('click', () => {
+        this._handleClick({
+          zero: this._zero, current: {
+            x: +node.closest('.cell').dataset.x,
+            y: +node.closest('.cell').dataset.y,
+          }
+        });
+      })
+    })
   }
+
 }

@@ -13,7 +13,9 @@
 @import '../blocks/header/header.css';
 
 @import '../blocks/controls/controls.css';
+
 @import '../blocks/button/button.css';
+@import '../blocks/button/_disabled/button_disabled.css';
 
 @import '../blocks/counters/counters.css';
 @import '../blocks/counter/counter.css';

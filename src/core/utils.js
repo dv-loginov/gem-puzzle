@@ -11,8 +11,8 @@ export function icoChange(node, icoName) {
 }
 
 export function changeClass(node, classOn, classOff) {
-  node.classList.add(classOn);
-  node.classList.remove(classOff);
+  if (classOn) node.classList.add(classOn);
+  if (classOff) node.classList.remove(classOff);
 }
 
 export function generateNumberSet(size) {

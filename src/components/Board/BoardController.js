@@ -1,9 +1,8 @@
-import { selectNode } from '../consts';
+import { selectNode } from '../../core/constants';
 import { Cell } from '../Cell/Cell';
-import { generateNumberSet } from '../utils/utils';
 
 export class BoardController {
-  constructor({model, view}) {
+  constructor(model, view) {
     this._size = selectNode.options[selectNode.selectedIndex].value;
     this._modelClass = model;
     this._viewClass = view;
@@ -18,10 +17,10 @@ export class BoardController {
         handle: this._handleClick
       });
 
-    this._view.createView(this._model.createBoard());
+    this._view.renderView(this._model.createBoard());
   }
 
-  _handleClick() {
-    console.log('_handeleClick');
+  _handleClick(data) {
+    console.log(data);
   }
 }
