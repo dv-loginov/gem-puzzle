@@ -1,12 +1,11 @@
 import { ViewApp } from './ViewApp';
 import { ModelApp } from './ModelApp';
-import { checks, buttons } from '../core/constants';
+import { checks, buttons, select } from '../core/constants';
 
 export class ControllerApp {
   constructor(observer, storage) {
-    this.observer = observer;
-    this.storage = storage;
-
+    this._observer = observer;
+    this._storage = storage;
   }
 
   init() {
@@ -21,40 +20,52 @@ export class ControllerApp {
       mute: {dataInit: checks.muteCheck, cb: this.handleChangeMute},
     }
 
-  }
+    this.select = {
+      size: {class: select.classNode, cb: this.handleChangeSizeBoard},
+    }
 
-  handlePlay = () => {
-    console.log("start game");
-    this.model.setPlayState();
-  }
-
-  handlePause = () => {
-    console.log("pause game");
-    this.model.setPauseState();
-  }
-
-  handleReplay = () => {
-    console.log("replay game");
-    this.model.setReplayState();
-  }
-
-  handleChangeMute = (node) => {
-    console.log(node.checked);
-    this.model.setMute(node.checked);
-  }
-
-  handleChangeTheme = (node) => {
-    console.log(node.checked);
-    this.model.setTheme(node.checked);
   }
 
   run() {
     this.init();
 
-    this.view = new ViewApp(this.observer);
-    this.view.init(this.buttons, this.checks);
+    this._viewApp = new ViewApp(this._observer);
+    this._viewApp.init(this.buttons, this.checks, this.select);
 
-    this.model = new ModelApp(this.observer, this.storage);
-    this.model.init();
+    this._modelApp = new ModelApp(this._observer, this._storage);
+    this._modelApp.init();
+    
+    // init board
+  }
+
+  handlePlay = () => {
+    console.log("start game");
+    this._modelApp.setPlayState();
+  }
+
+  handlePause = () => {
+    console.log("pause game");
+    this._modelApp.setPauseState();
+  }
+
+  handleReplay = () => {
+    console.log("replay game");
+    this._modelApp.setReplayState();
+  }
+
+  handleChangeMute = (node) => {
+    console.log(!node.checked);
+    this._modelApp.setMute(!node.checked);
+  }
+
+  handleChangeTheme = (node) => {
+    console.log(node.checked);
+    this._modelApp.setTheme(node.checked);
+  }
+
+  handleChangeSizeBoard = (node) => {
+    console.log(`Изменение размера доски на ${node.options[node.selectedIndex].value}`);
+
+    // this._model.setSizeBoard(node.options[node.selectedIndex].value);
   }
 }

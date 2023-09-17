@@ -1,56 +1,68 @@
 export class ViewApp {
   constructor(observer) {
-    this.observer = observer;
-    this.setButtons = this.setButtons.bind(this);
+    this._body = document.querySelector('body');
+    this._observer = observer;
+    this._setButtons = this._setButtons.bind(this);
+    this._setMute = this._setMute.bind(this);
+    this._setTheme = this._setTheme.bind(this);
   }
 
-  init(buttons, checks) {
-    this.buttonsNode = {};
-    this.checksNode = {};
+  init(buttons, checks, select) {
+    this._buttonsNode = {};
+    this._checksNode = {};
+    this._selectNode = {};
 
     for (let button in buttons) {
-      this.buttonsNode[button] = document.querySelector(buttons[button].class);
-      this.onListener(this.buttonsNode[button], 'click', buttons[button].cb);
+      this._buttonsNode[button] = document.querySelector(buttons[button].class);
+      this._onListener(this._buttonsNode[button], 'click', buttons[button].cb);
     }
 
     for (let check in checks) {
-      this.checksNode[check] = {}
-      this.checksNode[check].node = document.querySelector(checks[check].dataInit.classNode);
-      this.onListener(this.checksNode[check].node, 'change', checks[check].cb);
+      this._checksNode[check] = {}
+      this._checksNode[check].node = document.querySelector(checks[check].dataInit.classNode);
+      this._checksNode[check].nodeIco = document.querySelector(checks[check].dataInit.classIco);
+      this._onListener(this._checksNode[check].node, 'change', checks[check].cb);
     }
+    console.log(select);
+    this._selectNode = document.querySelector(select.size.class);
+    this._onListener(this._selectNode, 'change', select.size.cb);
 
-    this.observer.subscribe('model:setButton', this.setButtons);
-    this.observer.subscribe('model:setMute', this.setMute);
-    this.observer.subscribe('model:setTheme', this.setTheme);
+    this._observer.subscribe('modelApp:setButton', this._setButtons);
+    this._observer.subscribe('modelApp:setMute', this._setMute);
+    this._observer.subscribe('modelApp:setTheme', this._setTheme);
+    this._observer.subscribe('modelBorder:setSize', this._setSize);
   }
 
-  setButtons(buttons) {
+  _setButtons(buttons) {
     for (let button in buttons) {
       buttons[button]
-        ? this.changeClass(this.buttonsNode[button], false, 'button_disabled')
-        : this.changeClass(this.buttonsNode[button], 'button_disabled', false)
+        ? this._changeClass(this._buttonsNode[button], false, 'button_disabled')
+        : this._changeClass(this._buttonsNode[button], 'button_disabled', false)
     }
   }
 
-  setMute({mute, ico}) {
-    console.log(ico);
+  _setMute({ mute, ico }) {
+    this._icoChange(this._checksNode.mute.nodeIco, ico);
   }
 
-  setTheme({theme, ico}) {
-    console.log(ico);
+  _setTheme({ theme, ico }) {
+    this._icoChange(this._checksNode.theme.nodeIco, ico);
+    theme
+      ? this._changeClass(this._body, 'theme__dark', 'theme__light')
+      : this._changeClass(this._body, 'theme__light', 'theme__dark');
   }
 
-  // icoChange(node, icoName) {
-  //   node.textContent = icoName;
-  // }
+  _icoChange(node, icoName) {
+    node.textContent = icoName;
+  }
 
-  onListener(node, event, handle) {
+  _onListener(node, event, handle) {
     node.addEventListener(event, function () {
       handle(this);
     });
   }
 
-  changeClass(node, classOn, classOff) {
+  _changeClass(node, classOn, classOff) {
     if (classOn) node.classList.add(classOn);
     if (classOff) node.classList.remove(classOff);
   }

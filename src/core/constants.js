@@ -2,14 +2,10 @@ export const checks = {
   themeCheck: {
     classNode: '.checkbox_theme',
     classIco: '.setting__theme',
-    // icoOn: 'light_mode',
-    // icoOff: 'dark_mode',
   },
   muteCheck: {
     classNode: '.checkbox_mute',
     classIco: '.setting__mute',
-    // icoOn: 'volume_off',
-    // icoOff: 'volume_up',
   },
 };
 
@@ -18,10 +14,8 @@ export const buttons = {
   replay: '.button_replay',
   pause: '.button_pause',
 }
-//
-// export const disabledButtonClass = 'button_disabled';
-//
-// export const selectNode = document.querySelector('.setting__size');
+
+export const select = { classNode: '.setting__size' };
 //
 // export const board = '.board';
 // export const controls = '.controls';
