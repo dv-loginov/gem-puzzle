@@ -15,15 +15,18 @@ export const buttons = {
   pause: '.button_pause',
 }
 
-export const select = { classNode: '.setting__size' };
-//
-// export const board = '.board';
-// export const controls = '.controls';
-//
-// export const cell = {
-//   template: '#cell-template',
-//   rowClass: 'row',
-//   cell: '.cell',
-//   chip: '.chip',
-//   zeroClass: 'cell_zero',
-// };
+export const select = {
+  classNode: '.setting__size'
+};
+
+export const sizesBoard = [3, 4, 5];
+
+export const board = '.board';
+
+export const cell = {
+  template: '#cell-template',
+  rowClass: 'row',
+  cell: '.cell',
+  chip: '.chip',
+  zeroClass: 'cell_zero',
+};

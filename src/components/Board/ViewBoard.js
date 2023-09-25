@@ -1,13 +1,18 @@
 import { board, cell } from '../../core/constants';
 
-export class BoardView {
+export class ViewBoard {
   constructor({instance, handle}) {
+    console.log('ViewBoard: constructor');
     this._cellInstance = instance;
     this._handleClick = handle;
     this._root = document.querySelector(board);
   }
 
-  renderView(board) {
+  init(){
+    this._root.innerHTML='';
+  }
+
+  renderBoard(board) {
     const boardNodes = new DocumentFragment();
 
     for (let i = 0; i < board.length; i++) {

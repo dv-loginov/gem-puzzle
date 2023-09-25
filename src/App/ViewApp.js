@@ -1,13 +1,17 @@
+import { sizesBoard } from '../core/constants';
 export class ViewApp {
   constructor(observer) {
+    console.log('ViewApp: constructor');
     this._body = document.querySelector('body');
     this._observer = observer;
     this._setButtons = this._setButtons.bind(this);
     this._setMute = this._setMute.bind(this);
     this._setTheme = this._setTheme.bind(this);
+    this._setSize = this._setSize.bind(this);
   }
 
   init(buttons, checks, select) {
+    console.log('ViewApp: init()');
     this._buttonsNode = {};
     this._checksNode = {};
     this._selectNode = {};
@@ -23,14 +27,23 @@ export class ViewApp {
       this._checksNode[check].nodeIco = document.querySelector(checks[check].dataInit.classIco);
       this._onListener(this._checksNode[check].node, 'change', checks[check].cb);
     }
-    console.log(select);
+
     this._selectNode = document.querySelector(select.size.class);
+    sizesBoard.forEach((option) => {
+      let newOption = new Option(`${option}x${option}`, option);
+      this._selectNode.append(newOption);
+    });
     this._onListener(this._selectNode, 'change', select.size.cb);
 
     this._observer.subscribe('modelApp:setButton', this._setButtons);
     this._observer.subscribe('modelApp:setMute', this._setMute);
     this._observer.subscribe('modelApp:setTheme', this._setTheme);
-    this._observer.subscribe('modelBorder:setSize', this._setSize);
+    this._observer.subscribe('controllerApp:setSizeBoard', this._setSize);
+  }
+
+  _setSize(sizeIndex) {
+    console.log(`ViewApp: setSize`);
+    this._selectNode.selectedIndex = sizeIndex;
   }
 
   _setButtons(buttons) {

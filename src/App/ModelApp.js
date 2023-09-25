@@ -1,5 +1,6 @@
 export class ModelApp {
   constructor(observer, storage) {
+    console.log('ModelApp: constructor');
     this._observer = observer;
     this._storage = storage;
 
@@ -32,6 +33,7 @@ export class ModelApp {
   }
 
   init() {
+    console.log('ModelApp: init()');
     this._setInitButtonState();
     this.setTheme(false);
     this.setMute(true);

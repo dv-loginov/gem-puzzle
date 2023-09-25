@@ -1,32 +1,40 @@
 import { ViewApp } from './ViewApp';
 import { ModelApp } from './ModelApp';
+import { ControllerBoard } from '../components/Board/ControllerBoard';
 import { checks, buttons, select } from '../core/constants';
 
 export class ControllerApp {
   constructor(observer, storage) {
+    console.log('ControllerApp: constructor');
     this._observer = observer;
     this._storage = storage;
   }
 
   init() {
+    console.log('ControllerApp: init()');
     this.buttons = {
-      play: {class: buttons.play, cb: this.handlePlay},
-      replay: {class: buttons.replay, cb: this.handleReplay},
-      pause: {class: buttons.pause, cb: this.handlePause},
+      play: { class: buttons.play, cb: this.handlePlay },
+      replay: { class: buttons.replay, cb: this.handleReplay },
+      pause: { class: buttons.pause, cb: this.handlePause },
     }
 
     this.checks = {
-      theme: {dataInit: checks.themeCheck, cb: this.handleChangeTheme},
-      mute: {dataInit: checks.muteCheck, cb: this.handleChangeMute},
+      theme: { dataInit: checks.themeCheck, cb: this.handleChangeTheme },
+      mute: { dataInit: checks.muteCheck, cb: this.handleChangeMute },
     }
 
     this.select = {
-      size: {class: select.classNode, cb: this.handleChangeSizeBoard},
+      size: {
+        class: select.classNode,
+        options: select.options,
+        cb: this.handleChangeSizeBoard
+      },
     }
 
   }
 
   run() {
+    console.log('ControllerApp: run()');
     this.init();
 
     this._viewApp = new ViewApp(this._observer);
@@ -34,8 +42,9 @@ export class ControllerApp {
 
     this._modelApp = new ModelApp(this._observer, this._storage);
     this._modelApp.init();
-    
-    // init board
+
+    this._controllerBoard = new ControllerBoard(this._observer, this._storage);
+    this._controllerBoard.run();
   }
 
   handlePlay = () => {
@@ -64,8 +73,9 @@ export class ControllerApp {
   }
 
   handleChangeSizeBoard = (node) => {
-    console.log(`Изменение размера доски на ${node.options[node.selectedIndex].value}`);
-
-    // this._model.setSizeBoard(node.options[node.selectedIndex].value);
+    // console.log(`Изменение размера доски на ${node.options[node.selectedIndex].value}`);
+    // console.log(node.selectedIndex);
+    this._observer.emit('controllerApp:ChangeSizeBoard', node.selectedIndex);
+    this._controllerBoard.changeSizeBoard(node.selectedIndex);
   }
 }
