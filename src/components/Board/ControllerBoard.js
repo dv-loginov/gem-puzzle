@@ -7,37 +7,30 @@ export class ControllerBoard {
     console.log('ControllerBoard: constructor');
     this._observer = observer;
     this._storage = storage;
-
-    // this._modelClass = model;
-    // this._viewClass = view;
-    // this._handleClick = this._handleClick.bind(this);
+    this._handleClick = this._handleClick.bind(this);
     this._renderBoard = this._renderBoard.bind(this);
   }
 
   _init() {
     console.log('ControllerBoard: init');
-    
+
     this._observer.subscribe('modelBoard:genBoard', this._renderBoard);
-    
+
     this._viewBoard = new ViewBoard({
       instance: Cell,
-      handle: this._handleClick
+      handle: this._handleClick,
+      observer: this._observer,
     });
-    console.log(this._viewBoard);
-    
+    this._viewBoard.init();
+
+
     this._modelBoard = new ModelBoard(this._observer, this._storage);
     this._modelBoard.init();
-    
-    // this._view.renderView(this._model.createBoard());
-    // this._observer.emit('modelBoard:setSizeBoard', this._state.sizeIndex);
   }
 
   run() {
     console.log('ControllerBoard: run');
     this._init();
-  }
-  _handleClick(data) {
-    console.log(data);
   }
 
 
@@ -48,13 +41,13 @@ export class ControllerBoard {
 
   _renderBoard(board) {
     console.log('ControllerBoard: renderBoard');
-    console.log(board);
-    console.log(this._viewBoard);
-    this._viewBoard.init();
+    this._viewBoard.clearBoard();
     this._viewBoard.renderBoard(board);
   }
-}
 
-// this._viewBoard = new ViewBoard();
-// this._modelBoard = new ModelBoard();
-// this._board = new ControllerBoard(this._modelBoard, this._viewBoard);
+  _handleClick(data) {
+    console.log('controllerBoard: click');
+    console.log(data);
+    this._modelBoard.move(data);
+  }
+}

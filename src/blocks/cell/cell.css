@@ -9,3 +9,7 @@
 .cell:hover {
   cursor: pointer;
 }
+
+.cell[data-type="zero"] {
+  cursor: not-allowed;
+}

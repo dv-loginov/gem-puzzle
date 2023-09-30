@@ -73,8 +73,6 @@ export class ControllerApp {
   }
 
   handleChangeSizeBoard = (node) => {
-    // console.log(`Изменение размера доски на ${node.options[node.selectedIndex].value}`);
-    // console.log(node.selectedIndex);
     this._observer.emit('controllerApp:ChangeSizeBoard', node.selectedIndex);
     this._controllerBoard.changeSizeBoard(node.selectedIndex);
   }
