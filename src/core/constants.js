@@ -30,3 +30,5 @@ export const cell = {
   chip: '.chip',
   zeroClass: 'cell_zero',
 };
+
+export const counterClassValue = '.counter_value.counter__move';

@@ -1,4 +1,5 @@
 import { sizesBoard } from '../core/constants';
+import { counterClassValue } from '../core/constants';
 export class ViewApp {
   constructor(observer) {
     console.log('ViewApp: constructor');
@@ -8,6 +9,7 @@ export class ViewApp {
     this._setMute = this._setMute.bind(this);
     this._setTheme = this._setTheme.bind(this);
     this._setSize = this._setSize.bind(this);
+    this._setSteps = this._setSteps.bind(this);
   }
 
   init(buttons, checks, select) {
@@ -35,10 +37,19 @@ export class ViewApp {
     });
     this._onListener(this._selectNode, 'change', select.size.cb);
 
+
+    this._counterMoviesValueNode = document.querySelector(counterClassValue);
+    // console.log(this._counterMoviesValueNode);
+
     this._observer.subscribe('modelApp:setButton', this._setButtons);
     this._observer.subscribe('modelApp:setMute', this._setMute);
     this._observer.subscribe('modelApp:setTheme', this._setTheme);
     this._observer.subscribe('controllerApp:setSizeBoard', this._setSize);
+    this._observer.subscribe('modelApp:setSteps', this._setSteps);
+  }
+
+  _setSteps(steps) {
+    this._counterMoviesValueNode.textContent = steps;
   }
 
   _setSize(sizeIndex) {

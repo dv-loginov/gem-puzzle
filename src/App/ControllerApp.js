@@ -8,6 +8,7 @@ export class ControllerApp {
     console.log('ControllerApp: constructor');
     this._observer = observer;
     this._storage = storage;
+    this._addStep = this._addStep.bind(this);
   }
 
   init() {
@@ -30,7 +31,8 @@ export class ControllerApp {
         cb: this.handleChangeSizeBoard
       },
     }
-
+    
+    this._observer.subscribe('viewBoard:addStep', this._addStep);
   }
 
   run() {
@@ -75,5 +77,9 @@ export class ControllerApp {
   handleChangeSizeBoard = (node) => {
     this._observer.emit('controllerApp:ChangeSizeBoard', node.selectedIndex);
     this._controllerBoard.changeSizeBoard(node.selectedIndex);
+  }
+
+  _addStep() {
+    this._modelApp.addSteps();
   }
 }

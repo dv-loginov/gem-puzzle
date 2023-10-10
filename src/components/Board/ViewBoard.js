@@ -40,6 +40,7 @@ export class ViewBoard {
         this._move('down', coordZero.y - coordCurrent.y);
       }
     }
+    this._observer.emit('viewBoard:addStep');
   }
 
   _move(direction, delta) {

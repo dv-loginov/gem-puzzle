@@ -18,6 +18,9 @@ export class ModelApp {
       timer: null,
       mute: null,
       theme: null,
+
+      steps: null,
+      timer: null
     }
 
     this._themeIco = {
@@ -37,14 +40,26 @@ export class ModelApp {
     this._setInitButtonState();
     this.setTheme(false);
     this.setMute(true);
+    this.setSteps(0);
+  }
+
+  setSteps(step) {
+    this._state.steps = step;
+    this._observer.emit('modelApp:setSteps', this._state.steps);
+  }
+
+  addSteps() {
+    this._state.steps++;
+    this.setSteps(this._state.steps);
+    console.log(this._state.steps);
   }
 
   setPlayState() {
-    this.setButton({play: false, replay: true, pause: true});
+    this.setButton({ play: false, replay: true, pause: true });
   }
 
   setPauseState() {
-    this.setButton({play: true, replay: true, pause: false});
+    this.setButton({ play: true, replay: true, pause: false });
   }
 
   setReplayState() {
@@ -52,10 +67,10 @@ export class ModelApp {
   }
 
   _setInitButtonState() {
-    this.setButton({play: true, replay: false, pause: false});
+    this.setButton({ play: true, replay: false, pause: false });
   };
 
-  setButton({play, replay, pause}) {
+  setButton({ play, replay, pause }) {
     this._state.buttons.play = play;
     this._state.buttons.replay = replay
     this._state.buttons.pause = pause;
@@ -68,7 +83,7 @@ export class ModelApp {
     this._state.theme
       ? ico = this._themeIco.icoOn
       : ico = this._themeIco.icoOff;
-    this._observer.emit('modelApp:setTheme', {theme: this._state.theme, ico: ico});
+    this._observer.emit('modelApp:setTheme', { theme: this._state.theme, ico: ico });
   }
 
   setMute(mute) {
@@ -77,6 +92,6 @@ export class ModelApp {
     this._state.mute
       ? ico = this._muteIco.icoOn
       : ico = this._muteIco.icoOff;
-    this._observer.emit('modelApp:setMute', {mute: this._state.mute, ico: ico});
+    this._observer.emit('modelApp:setMute', { mute: this._state.mute, ico: ico });
   }
 }
