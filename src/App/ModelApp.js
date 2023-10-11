@@ -14,13 +14,10 @@ export class ModelApp {
         mute: null,
         theme: null,
       },
-      moves: null,
-      timer: null,
       mute: null,
       theme: null,
-
       steps: null,
-      timer: null
+      time: null,
     }
 
     this._themeIco = {
@@ -33,6 +30,7 @@ export class ModelApp {
       icoOff: 'volume_off',
     }
 
+    this._addTime = this._addTime.bind(this);
   }
 
   init() {
@@ -41,17 +39,37 @@ export class ModelApp {
     this.setTheme(false);
     this.setMute(true);
     this.setSteps(0);
+    this.setTime(0);
   }
+
+  setTime(time) {
+    this._state.time = time;
+    this._observer.emit('modelApp:setTime', time);
+  }
+
+  _addTime() {
+    this._state.time++;
+    this.setTime(this._state.time);
+  }
+
+  runTimer() {
+    this._timer = setInterval(this._addTime, 1000);
+  }
+
+  stopTimer() {
+    clearTimeout(this._timer);
+  }
+
+  ressetTimer() { }
 
   setSteps(step) {
     this._state.steps = step;
-    this._observer.emit('modelApp:setSteps', this._state.steps);
+    this._observer.emit('modelApp:setSteps', step);
   }
 
   addSteps() {
     this._state.steps++;
     this.setSteps(this._state.steps);
-    console.log(this._state.steps);
   }
 
   setPlayState() {

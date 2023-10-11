@@ -1,5 +1,5 @@
 import { sizesBoard } from '../core/constants';
-import { counterClassValue } from '../core/constants';
+import { counterMovesClassValue, counterTimeClassValue } from '../core/constants';
 export class ViewApp {
   constructor(observer) {
     console.log('ViewApp: constructor');
@@ -10,6 +10,7 @@ export class ViewApp {
     this._setTheme = this._setTheme.bind(this);
     this._setSize = this._setSize.bind(this);
     this._setSteps = this._setSteps.bind(this);
+    this._setTime = this._setTime.bind(this);
   }
 
   init(buttons, checks, select) {
@@ -38,7 +39,8 @@ export class ViewApp {
     this._onListener(this._selectNode, 'change', select.size.cb);
 
 
-    this._counterMoviesValueNode = document.querySelector(counterClassValue);
+    this._counterMoviesValueNode = document.querySelector(counterMovesClassValue);
+    this._counterTimeValueNode = document.querySelector(counterTimeClassValue);
     // console.log(this._counterMoviesValueNode);
 
     this._observer.subscribe('modelApp:setButton', this._setButtons);
@@ -46,6 +48,11 @@ export class ViewApp {
     this._observer.subscribe('modelApp:setTheme', this._setTheme);
     this._observer.subscribe('controllerApp:setSizeBoard', this._setSize);
     this._observer.subscribe('modelApp:setSteps', this._setSteps);
+    this._observer.subscribe('modelApp:setTime', this._setTime);
+  }
+
+  _setTime(time) {
+    this._counterTimeValueNode.textContent = time;
   }
 
   _setSteps(steps) {

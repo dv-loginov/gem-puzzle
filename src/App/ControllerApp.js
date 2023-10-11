@@ -52,11 +52,13 @@ export class ControllerApp {
   handlePlay = () => {
     console.log("start game");
     this._modelApp.setPlayState();
+    this._modelApp.runTimer();
   }
 
   handlePause = () => {
     console.log("pause game");
     this._modelApp.setPauseState();
+    this._modelApp.stopTimer();
   }
 
   handleReplay = () => {
