@@ -1,0 +1,37 @@
+/*@import url(../vendor/normalize.css);*/
+@import '../vendor/normalize.css';
+@import '../blocks/const/const.css';
+
+@import '../blocks/page/page.css';
+
+@import '../blocks/theme/__light/theme__light.css';
+@import '../blocks/theme/__dark/theme__dark.css';
+
+@import '../blocks/logo/logo.css';
+
+@import '../blocks/puzzle/puzzle.css';
+@import '../blocks/header/header.css';
+
+@import '../blocks/controls/controls.css';
+
+@import '../blocks/button/button.css';
+@import '../blocks/button/_disabled/button_disabled.css';
+
+@import '../blocks/counters/counters.css';
+@import '../blocks/counter/counter.css';
+@import '../blocks/counter/_header/counter_header.css';
+@import '../blocks/counter/_value/counter_value.css';
+
+@import '../blocks/settings/settings.css';
+@import '../blocks/setting/setting.css';
+@import '../blocks/setting/__invisible/setting__invisible.css';
+@import '../blocks/setting/__mute/setting__mute.css';
+@import '../blocks/setting/__theme/setting__theme.css';
+@import '../blocks/setting/__size/setting__size.css';
+
+@import '../blocks/board/board.css';
+@import '../blocks/row/row.css';
+@import '../blocks/cell/cell.css';
+@import '../blocks/cell/_zero/cell_zero.css';
+
+@import '../blocks/chip/chip.css';

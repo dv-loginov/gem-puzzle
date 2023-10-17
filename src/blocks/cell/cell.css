@@ -4,9 +4,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--border);
 }
 
 .cell:hover {
   cursor: pointer;
+}
+
+.cell[data-type="zero"] {
+  cursor: not-allowed;
 }

@@ -1,5 +1,6 @@
 .counter {
   border: solid 1px var(--border);
+  color: var(--text-color);
   padding: 5px;
   display: flex;
   flex-direction: column;

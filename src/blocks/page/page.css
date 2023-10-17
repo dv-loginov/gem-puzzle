@@ -6,4 +6,5 @@
   min-height: 100vh;
   max-width: 100vw;
   font-family: Roboto, sans-serif;
+  transition: 500ms;
 }
