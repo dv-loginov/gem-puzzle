@@ -5,14 +5,15 @@ input[type="checkbox"] + .setting__mute {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--bg-color);
 }
 
 input[type="checkbox"]:disabled + .setting__mute {
-  background-color: aqua;
+  /* background-color: aqua; */
 } /* выключенный */
 
 input[type="checkbox"]:checked + .setting__mute {
-  background-color: var(--bg-color);
+  /* background-color: var(--bg-color); */
 } /* выбранный */
 
 input[type="checkbox"]:focus + .setting__mute {

@@ -1,6 +1,6 @@
 .setting {
   cursor: pointer;
-  background-color: var(--bg-button);
+  background-color: var(--bg-color);
   color: var(--text-color);
   user-select: none;
   width: 30px;
