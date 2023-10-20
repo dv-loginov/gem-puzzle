@@ -1,5 +1,8 @@
 .theme__light {
-  --bg-color: #dfe6e9;
+  --page-color: #1e272e;
+  --bg-color: #cbcacd;
+  --shadow-color-1: #747375;
+  --shadow-color-2: #ffffff;
   --border: #000;
   --text-color: #000;
   --bg-button: #fff;

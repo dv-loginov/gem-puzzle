@@ -1,6 +1,5 @@
 .settings {
   padding: 5px;
-  border: 1px solid var(--border);
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
