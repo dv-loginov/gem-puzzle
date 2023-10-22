@@ -1,5 +1,5 @@
 .button_disabled {
   pointer-events:none;
   cursor: not-allowed;
-  background-color: antiquewhite;
+  color: var(--text-color-disable);
 }
