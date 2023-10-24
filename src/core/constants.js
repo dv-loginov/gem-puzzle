@@ -31,5 +31,5 @@ export const cell = {
   zeroClass: 'cell_zero',
 };
 
-export const counterMovesClassValue = '.counter_value.counter__move';
-export const counterTimeClassValue = '.counter_value.counter__time';
+export const counterMovesClassValue = '.counter__value.counter_move';
+export const counterTimeClassValue = '.counter__value.counter_time';

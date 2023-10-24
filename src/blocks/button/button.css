@@ -2,7 +2,7 @@
   width: 34px;
   height: 34px;
   padding: 0;
-  border: 1px solid var(--border);
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,4 +10,11 @@
   background-color: var(--bg-button);
   color: var(--text-color);
   border-radius: 50%;
+  transition: all 500ms ease-out;
+}
+
+.button:hover {
+  background: var(--bg-color);
+  box-shadow: 5px 5px 11px var(--shadow-color-1),
+    -5px -5px 11px var(--shadow-color-2);
 }
