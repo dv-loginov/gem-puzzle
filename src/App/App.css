@@ -19,8 +19,8 @@
 
 @import '../blocks/counters/counters.css';
 @import '../blocks/counter/counter.css';
-@import '../blocks/counter/_header/counter_header.css';
-@import '../blocks/counter/_value/counter_value.css';
+@import '../blocks/counter/__header/counter__header.css';
+@import '../blocks/counter/__value/counter__value.css';
 
 @import '../blocks/settings/settings.css';
 @import '../blocks/setting/setting.css';
