@@ -1,4 +1,4 @@
-import { sizesBoard } from '../core/constants';
+import { sizesBoard, boardClass } from '../core/constants';
 import { counterMovesClassValue, counterTimeClassValue } from '../core/constants';
 export class ViewApp {
   constructor(observer) {
@@ -18,6 +18,7 @@ export class ViewApp {
     this._buttonsNode = {};
     this._checksNode = {};
     this._selectNode = {};
+    this._boardNode = document.querySelector(boardClass);
 
     for (let button in buttons) {
       this._buttonsNode[button] = document.querySelector(buttons[button].class);
@@ -41,7 +42,6 @@ export class ViewApp {
 
     this._counterMoviesValueNode = document.querySelector(counterMovesClassValue);
     this._counterTimeValueNode = document.querySelector(counterTimeClassValue);
-    // console.log(this._counterMoviesValueNode);
 
     this._observer.subscribe('modelApp:setButton', this._setButtons);
     this._observer.subscribe('modelApp:setMute', this._setMute);
@@ -70,6 +70,10 @@ export class ViewApp {
         ? this._changeClass(this._buttonsNode[button], false, 'button_disabled')
         : this._changeClass(this._buttonsNode[button], 'button_disabled', false)
     }
+
+    !buttons.play
+      ? this._changeClass(this._boardNode, 'board_open', null)
+      : this._changeClass(this._boardNode, null, 'board_open');
   }
 
   _setMute({ mute, ico }) {
@@ -83,16 +87,17 @@ export class ViewApp {
       : this._changeClass(this._body, 'theme__light', 'theme__dark');
   }
 
+  //TODO Перенести в утилиты
   _icoChange(node, icoName) {
     node.textContent = icoName;
   }
-
+  //TODO Перенести в утилиты
   _onListener(node, event, handle) {
     node.addEventListener(event, function () {
       handle(this);
     });
   }
-
+  //TODO Перенести в утилиты
   _changeClass(node, classOn, classOff) {
     if (classOn) node.classList.add(classOn);
     if (classOff) node.classList.remove(classOff);

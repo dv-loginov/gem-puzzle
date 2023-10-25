@@ -21,7 +21,7 @@ export const select = {
 
 export const sizesBoard = [3, 4, 5];
 
-export const board = '.board';
+export const boardClass = '.board';
 
 export const cell = {
   template: '#cell-template',

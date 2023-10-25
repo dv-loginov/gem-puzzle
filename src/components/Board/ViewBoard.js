@@ -1,4 +1,4 @@
-import { board, cell } from '../../core/constants';
+import { boardClass, cell } from '../../core/constants';
 
 export class ViewBoard {
   constructor({ instance, handle, observer }) {
@@ -6,7 +6,7 @@ export class ViewBoard {
     this._cellInstance = instance;
     this._onClick = handle;
     this._observer = observer;
-    this._root = document.querySelector(board);
+    this._root = document.querySelector(boardClass);
     this._moveGood = this._moveGood.bind(this);
     this._moveBad = this._moveBad.bind(this);
   }

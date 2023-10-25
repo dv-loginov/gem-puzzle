@@ -1,8 +1,36 @@
 .board {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content : center;
   align-items: center;
   padding: var(--size-padding-board);
   gap: var(--size-padding-cell);
+  overflow: hidden;
+}
+
+.board::before, 
+.board::after {
+  content: '';
+  width: 51%;
+  height: 100%;
+  position: absolute;
+  background-color: #4d4242;
+  transition: all 1.5s ease-in;
+}
+
+.board::before {
+  left: 0;
+}
+
+.board::after {
+  right: 0;
+}
+
+.board_open::before {
+  transform: translateX(-100%);
+}
+
+.board_open::after {
+  transform: translateX(100%);
 }

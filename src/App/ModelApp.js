@@ -95,6 +95,8 @@ export class ModelApp {
     this._observer.emit('modelApp:setButton', this._state.buttons);
   }
 
+
+  //TODO Создать один метод 
   setTheme(theme) {
     this._state.theme = theme;
     let ico;
