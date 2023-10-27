@@ -1,5 +1,6 @@
 import { sizesBoard, boardClass } from '../core/constants';
 import { counterMovesClassValue, counterTimeClassValue } from '../core/constants';
+import { toTime } from '../core/utils';
 export class ViewApp {
   constructor(observer) {
     console.log('ViewApp: constructor');
@@ -52,7 +53,7 @@ export class ViewApp {
   }
 
   _setTime(time) {
-    this._counterTimeValueNode.textContent = time;
+    this._counterTimeValueNode.textContent = toTime(time);
   }
 
   _setSteps(steps) {
