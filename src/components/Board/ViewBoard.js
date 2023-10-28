@@ -2,7 +2,6 @@ import { boardClass, cell } from '../../core/constants';
 
 export class ViewBoard {
   constructor({ instance, handle, observer }) {
-    console.log('ViewBoard: constructor');
     this._cellInstance = instance;
     this._onClick = handle;
     this._observer = observer;
@@ -17,9 +16,6 @@ export class ViewBoard {
   }
 
   _moveGood() {
-    console.log('ViewBoard:moveGood');
-    console.log(this._current);
-
     this._zeroNode = this._root.querySelector('[data-type="zero"]');
 
     const coordCurrent = this._currentNode.getBoundingClientRect();
@@ -40,6 +36,7 @@ export class ViewBoard {
         this._move('down', coordZero.y - coordCurrent.y);
       }
     }
+
     this._observer.emit('viewBoard:addStep');
   }
 
@@ -50,21 +47,19 @@ export class ViewBoard {
 
     switch (direction) {
       case 'up':
-        console.log('up');
         this._currentNode.style.transform = `translateY(-${delta}px)`;
         break;
       case 'down':
-        console.log('down');
         this._currentNode.style.transform = `translateY(${delta}px)`;
         break;
       case 'left':
-        console.log('left');
         this._currentNode.style.transform = `translateX(-${delta}px)`;
         break;
       case 'right':
         console.log('right');
         this._currentNode.style.transform = `translateX(${delta}px)`;
         break;
+      default: return null;
     }
 
     setTimeout(() => {
@@ -75,12 +70,10 @@ export class ViewBoard {
       this._zero = this._current;
       this._root.style.pointerEvents = 'auto';
     }, delayMs);
-
   }
 
   _moveBad() {
-    console.log('ViewBoard:moveBad');
-    console.log(this._current);
+    // TODO звук неудачного хода, если звук включен
   }
 
   clearBoard() {
@@ -88,7 +81,6 @@ export class ViewBoard {
   }
 
   _handleClick = (event, data) => {
-    console.log(data);
     this._currentNode = event.target;
     this._current = data.current;
     this._onClick(data);
@@ -106,6 +98,7 @@ export class ViewBoard {
         if (board[rowIndex][colIndex] === 0) this._zero = { col: colIndex, row: rowIndex };
         row.append(cell.createCell());
       }
+
       boardNodes.append(row);
     }
 

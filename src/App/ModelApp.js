@@ -1,9 +1,7 @@
 export class ModelApp {
-  constructor(observer, storage) {
-    console.log('ModelApp: constructor');
+  constructor(observer) {
     this._observer = observer;
-    this._storage = storage;
-
+    
     this._state = {
       buttons: {
         play: null,
@@ -34,7 +32,6 @@ export class ModelApp {
   }
 
   init() {
-    console.log('ModelApp: init()');
     this._setInitButtonState();
     this.setTheme(false);
     this.setMute(true);
@@ -95,7 +92,6 @@ export class ModelApp {
     this._state.buttons.pause = pause;
     this._observer.emit('modelApp:setButton', this._state.buttons);
   }
-
 
   //TODO Создать один метод 
   setTheme(theme) {

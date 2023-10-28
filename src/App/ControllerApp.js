@@ -4,15 +4,12 @@ import { ControllerBoard } from '../components/Board/ControllerBoard';
 import { checks, buttons, select } from '../core/constants';
 
 export class ControllerApp {
-  constructor(observer, storage) {
-    console.log('ControllerApp: constructor');
+  constructor(observer) {
     this._observer = observer;
-    this._storage = storage;
     this._addStep = this._addStep.bind(this);
   }
 
   init() {
-    console.log('ControllerApp: init()');
     this.buttons = {
       play: { class: buttons.play, cb: this.handlePlay },
       replay: { class: buttons.replay, cb: this.handleReplay },
@@ -36,7 +33,6 @@ export class ControllerApp {
   }
 
   run() {
-    console.log('ControllerApp: run()');
     this.init();
 
     this._viewApp = new ViewApp(this._observer);
@@ -50,29 +46,24 @@ export class ControllerApp {
   }
 
   handlePlay = () => {
-    console.log("start game");
     this._modelApp.setPlayState();
     this._modelApp.runTimer();
   }
 
   handlePause = () => {
-    console.log("pause game");
     this._modelApp.setPauseState();
     this._modelApp.stopTimer();
   }
 
   handleReplay = () => {
-    console.log("replay game");
     this._modelApp.setReplayState();
   }
 
   handleChangeMute = (node) => {
-    console.log(!node.checked);
     this._modelApp.setMute(!node.checked);
   }
 
   handleChangeTheme = (node) => {
-    console.log(node.checked);
     this._modelApp.setTheme(node.checked);
   }
 

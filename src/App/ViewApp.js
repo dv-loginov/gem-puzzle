@@ -3,7 +3,6 @@ import { counterMovesClassValue, counterTimeClassValue } from '../core/constants
 import { toTime } from '../core/utils';
 export class ViewApp {
   constructor(observer) {
-    console.log('ViewApp: constructor');
     this._body = document.querySelector('body');
     this._observer = observer;
     this._setButtons = this._setButtons.bind(this);
@@ -15,7 +14,6 @@ export class ViewApp {
   }
 
   init(buttons, checks, select) {
-    console.log('ViewApp: init()');
     this._buttonsNode = {};
     this._checksNode = {};
     this._selectNode = {};

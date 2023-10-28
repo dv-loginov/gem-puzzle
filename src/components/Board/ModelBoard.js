@@ -2,11 +2,9 @@ import { generateNumberSet } from '../../core/utils';
 import { sizesBoard } from '../../core/constants';
 
 export class ModelBoard {
-  constructor(observer, storage) {
-    console.log('ModelBoard: constructor');
+  constructor(observer) {
     this._observer = observer;
-    this._storage = storage;
-
+    
     this._state = {
       sizeIndex: null,
       sizeBoard: null,
@@ -17,20 +15,17 @@ export class ModelBoard {
   }
 
   init() {
-    console.log('ModelBoard: init');
     this._setSizeBoard(0);
     this._observer.subscribe('controllerApp:ChangeSizeBoard', this._setSizeBoard);
   }
 
   _setSizeBoard(sizeIndex, renderBoard) {
-    console.log(`ModelBoard: setSizeBoard ${sizeIndex}`);
     this._state.sizeIndex = sizeIndex;
     this._state.sizeBoard = sizesBoard[sizeIndex];
     this._genBoard();
   }
 
   _genBoard() {
-    console.log(`Генерация доски ${this._state.sizeBoard}x${this._state.sizeBoard}`);
     const arrNumber = [...generateNumberSet(this._state.sizeBoard)];
     let counter = 0;
 
@@ -41,6 +36,7 @@ export class ModelBoard {
         this._state.board[i][j] = arrNumber[counter++];
       }
     }
+
     this._observer.emit('modelBoard:genBoard', this._state.board);
   }
 
@@ -49,7 +45,6 @@ export class ModelBoard {
       (row === data.current.row) && (col === data.current.col))) {
       this._state.board[data.zero.row][data.zero.col] = this._state.board[data.current.row][data.current.col];
       this._state.board[data.current.row][data.current.col] = 0;
-      console.log(this._state.board);
       this._observer.emit('modelBoard:moveIsAllowed', null);
     } else {
       this._observer.emit('modelBoard:moveIsNotAllowed', null);
