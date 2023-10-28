@@ -11,12 +11,13 @@
 
 .board::before, 
 .board::after {
-  content: '';
+  content: "";
   width: 51%;
   height: 100%;
   position: absolute;
-  background-color: #1f1c1c;
+  background-color: var(--cover-color);
   transition: all 1.5s ease-in;
+  background-image: url(../../images/fon.jpg);
 }
 
 .board::before {
@@ -28,9 +29,9 @@
 }
 
 .board_open::before {
-  transform: translateX(-100%); 
+  transform: translateX(-101%); 
 }
 
 .board_open::after {
-  transform: translateX(100%)gi;
+  transform: translateX(101%);
 }
