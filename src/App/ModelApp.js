@@ -60,8 +60,6 @@ export class ModelApp {
     clearTimeout(this._timer);
   }
 
-  ressetTimer() { }
-
   setSteps(step) {
     this._state.steps = step;
     this._observer.emit('modelApp:setSteps', step);
@@ -82,6 +80,9 @@ export class ModelApp {
 
   setReplayState() {
     this._setInitButtonState();
+    this.stopTimer();
+    this.setSteps(0);
+    this.setTime(0);
   }
 
   _setInitButtonState() {
