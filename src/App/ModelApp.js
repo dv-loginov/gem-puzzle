@@ -1,7 +1,8 @@
 export class ModelApp {
   constructor(observer) {
     this._observer = observer;
-    
+    this._storageKey = 'puzzleApp';
+
     this._state = {
       buttons: {
         play: null,
@@ -32,6 +33,7 @@ export class ModelApp {
   }
 
   init() {
+    // загрузить из storage
     this._setInitButtonState();
     this.setTheme(false);
     this.setMute(true);

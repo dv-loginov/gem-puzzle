@@ -10,8 +10,6 @@ export function generateNumberSet(size) {
 }
 
 export function toTime(sec) {
-
-  
   let m = Math.floor(sec / 60);
   let s = sec % 60;
   m = m % 60;
@@ -20,8 +18,11 @@ export function toTime(sec) {
   return pad2(m) + ":" + pad2(s);
 }
 
-
 function pad2(num) {
     let s = num.toString();
     return (s.length < 2)?("0"+s): s;
+}
+
+export function icoChange(node, icoName) {
+  node.textContent = icoName;
 }

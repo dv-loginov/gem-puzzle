@@ -1,6 +1,6 @@
 import { sizesBoard, boardClass } from '../core/constants';
 import { counterMovesClassValue, counterTimeClassValue } from '../core/constants';
-import { toTime } from '../core/utils';
+import { toTime, icoChange } from '../core/utils';
 export class ViewApp {
   constructor(observer) {
     this._body = document.querySelector('body');
@@ -76,20 +76,16 @@ export class ViewApp {
   }
 
   _setMute({ mute, ico }) {
-    this._icoChange(this._checksNode.mute.nodeIco, ico);
+    icoChange(this._checksNode.mute.nodeIco, ico);
   }
 
   _setTheme({ theme, ico }) {
-    this._icoChange(this._checksNode.theme.nodeIco, ico);
+    icoChange(this._checksNode.theme.nodeIco, ico);
     theme
       ? this._changeClass(this._body, 'theme__dark', 'theme__light')
       : this._changeClass(this._body, 'theme__light', 'theme__dark');
   }
 
-  //TODO Перенести в утилиты
-  _icoChange(node, icoName) {
-    node.textContent = icoName;
-  }
   //TODO Перенести в утилиты
   _onListener(node, event, handle) {
     node.addEventListener(event, function () {

@@ -4,6 +4,7 @@ import { sizesBoard } from '../../core/constants';
 export class ModelBoard {
   constructor(observer) {
     this._observer = observer;
+    this._storageKey = 'puzzleBoard';
     
     this._state = {
       sizeIndex: null,
