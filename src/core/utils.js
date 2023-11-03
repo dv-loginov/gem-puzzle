@@ -26,3 +26,14 @@ function pad2(num) {
 export function icoChange(node, icoName) {
   node.textContent = icoName;
 }
+
+export function onListener(node, event, handle) {
+  node.addEventListener(event, function () {
+    handle(this);
+  });
+}
+
+export function changeClass(node, classOn, classOff) {
+  if (classOn) node.classList.add(classOn);
+  if (classOff) node.classList.remove(classOff);
+}

@@ -1,6 +1,6 @@
 import { sizesBoard, boardClass } from '../core/constants';
 import { counterMovesClassValue, counterTimeClassValue } from '../core/constants';
-import { toTime, icoChange } from '../core/utils';
+import { toTime, icoChange, onListener, changeClass } from '../core/utils';
 export class ViewApp {
   constructor(observer) {
     this._body = document.querySelector('body');
@@ -21,14 +21,14 @@ export class ViewApp {
 
     for (let button in buttons) {
       this._buttonsNode[button] = document.querySelector(buttons[button].class);
-      this._onListener(this._buttonsNode[button], 'click', buttons[button].cb);
+      onListener(this._buttonsNode[button], 'click', buttons[button].cb);
     }
 
     for (let check in checks) {
       this._checksNode[check] = {}
       this._checksNode[check].node = document.querySelector(checks[check].dataInit.classNode);
       this._checksNode[check].nodeIco = document.querySelector(checks[check].dataInit.classIco);
-      this._onListener(this._checksNode[check].node, 'change', checks[check].cb);
+      onListener(this._checksNode[check].node, 'change', checks[check].cb);
     }
 
     this._selectNode = document.querySelector(select.size.class);
@@ -36,7 +36,7 @@ export class ViewApp {
       let newOption = new Option(`${option}x${option}`, option);
       this._selectNode.append(newOption);
     });
-    this._onListener(this._selectNode, 'change', select.size.cb);
+    onListener(this._selectNode, 'change', select.size.cb);
 
 
     this._counterMoviesValueNode = document.querySelector(counterMovesClassValue);
@@ -66,13 +66,13 @@ export class ViewApp {
   _setButtons(buttons) {
     for (let button in buttons) {
       buttons[button]
-        ? this._changeClass(this._buttonsNode[button], false, 'button_disabled')
-        : this._changeClass(this._buttonsNode[button], 'button_disabled', false)
+        ? changeClass(this._buttonsNode[button], false, 'button_disabled')
+        : changeClass(this._buttonsNode[button], 'button_disabled', false)
     }
 
     !buttons.play
-      ? this._changeClass(this._boardNode, 'board_open', null)
-      : this._changeClass(this._boardNode, null, 'board_open');
+      ? changeClass(this._boardNode, 'board_open', null)
+      : changeClass(this._boardNode, null, 'board_open');
   }
 
   _setMute({ mute, ico }) {
@@ -82,19 +82,7 @@ export class ViewApp {
   _setTheme({ theme, ico }) {
     icoChange(this._checksNode.theme.nodeIco, ico);
     theme
-      ? this._changeClass(this._body, 'theme__dark', 'theme__light')
-      : this._changeClass(this._body, 'theme__light', 'theme__dark');
-  }
-
-  //TODO Перенести в утилиты
-  _onListener(node, event, handle) {
-    node.addEventListener(event, function () {
-      handle(this);
-    });
-  }
-  //TODO Перенести в утилиты
-  _changeClass(node, classOn, classOff) {
-    if (classOn) node.classList.add(classOn);
-    if (classOff) node.classList.remove(classOff);
+      ? changeClass(this._body, 'theme__dark', 'theme__light')
+      : changeClass(this._body, 'theme__light', 'theme__dark');
   }
 }
